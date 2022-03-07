@@ -82,6 +82,15 @@ class Scanner {
 		if (match('/')) {
 		    // A comment goes until the end of the line, ignore everything.
 		    while (peek() != '\n' && !isAtEnd()) advance();  // Once we know the next one isn't \n, we can move on.
+		    
+//              Support for block comments, i.e. /* .... */
+//		} else if (match('*')) {
+//		    while (peek() != '*' && peekNext() != '/' && !isAtEnd()) {
+//			if (peek() == '\n') line++;
+//			advance();
+//		    }
+//		    advance();  // Consume '*'.
+//		    advance();  // Consume '/'.
 		} else {
 		    addToken(SLASH);
 		}
